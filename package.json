@@ -1,6 +1,6 @@
 {
   "name": "@allmarkedup/fang",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A tiny utility to get language information about a file.",
   "tags": [
     "language",
