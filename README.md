@@ -27,10 +27,12 @@ console.dir(fang('assets/styles/main.scss'));
 
 // Outputs:
 // {
-//     "name":  "SCSS",        // Language name
-//     "mode":  "scss",        // ACE editor mode
-//     "scope": "source.scss", // TextMate/Sublime scope
-//     "color": "#CF649A"      // Github UI color
+//     "name":  "SCSS",           // Language name
+//     "type": "programming",     // language type - programming, data, markup etc
+//     "color": "#CF649A",        // Github UI color
+//     "extensions": [".scss"],   // Array of known extensions
+//     "aliases": [],             // Array of known aliases
+//     "language_id": 32,         // Github language ID
 // }
 ```
 

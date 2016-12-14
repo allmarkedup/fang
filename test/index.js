@@ -10,9 +10,11 @@ describe("fang", function(){
         const lang = fang('assets/main.scss');
         expect(lang).to.be.an('object');
         expect(lang).to.have.property('name');
-        expect(lang).to.have.property('mode');
-        expect(lang).to.have.property('scope');
+        expect(lang).to.have.property('type');
+        expect(lang).to.have.property('extensions');
         expect(lang).to.have.property('color');
+        expect(lang).to.have.property('language_id');
+        expect(lang).to.have.property('aliases');
     });
 
     it("returns undefined if the extension is not recognised", function(){

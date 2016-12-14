@@ -9,10 +9,7 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec",
-    "lint": "jscs index.js",
-    "lint:fix": "jscs index.js --fix",
-    "lang:build": "ruby -ryaml -rjson -e 'puts JSON.pretty_generate(YAML.load(ARGF))' < support/languages.yml > support/languages.json && node support/build.js"
+    "test": "mocha --reporter spec"
   },
   "author": "Mark Perkins <mark@allmarkedup.com> (http://allmarkedup.com)",
   "license": "MIT",
@@ -22,8 +19,7 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
-    "chai-as-promised": "^5.2.0",
-    "jscs": "^2.9.0",
+    "js-yaml": "^3.7.0",
     "lodash": "^4.1.0",
     "mocha": "^2.4.2"
   }

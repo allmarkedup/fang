@@ -4,19 +4,24 @@
 
 const _       = require('lodash');
 const fs      = require('fs');
-const langMap = require('./languages');
+const yaml    = require('js-yaml');
 
-const extToLang = {};
-
-_.each(langMap, (lang, name) => {
-    _.each(lang.extensions, ext => {
-        extToLang[ext] = {
-            name: name,
-            mode: lang.ace_mode,
-            scope: (lang.tm_scope && lang.tm_scope != 'none') ? lang.tm_scope : null,
-            color: lang.color || null,
-        };
+fs.readFile(`${__dirname}/languages.yml`, 'utf-8', function(err, contents){
+    if (err) {
+        return console.log(err);
+    }
+    const data = yaml.load(contents);
+    const langs = _.map(data, (value, key) => {
+        value.name = key;
+        value.color = value.color || '#000';
+        value.aliases = value.aliases || [];
+        value.extensions = [].concat(value.extensions);
+        return value;
+    });
+    fs.writeFile(`${__dirname}/../languages.json`, JSON.stringify(langs, null, 2), 'utf-8', function(err){
+        if (err) {
+            return console.log(err);
+        }
+        console.log('✔︎ languages.json file generated successfully.');
     });
 });
-
-fs.writeFileSync('languages.json', JSON.stringify(extToLang, null, 2), 'UTF-8');

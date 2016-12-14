@@ -1,16 +1,15 @@
 'use strict';
 
-const Path      = require('path');
+const path      = require('path');
 const languages = require('./languages');
 
 module.exports = function fang(filePath) {
 
-    const fileExt = Path.parse(filePath).ext.toLowerCase();
-    for (let ext in languages) {
-        if (languages.hasOwnProperty(ext) && ext === fileExt) {
-            return languages[ext];
+    const ext = path.extname(filePath).toLowerCase();
+    for (let lang of languages) {
+        if (lang.extensions.indexOf(ext) !== -1) {
+            return lang;
         }
     }
-
     return;
 };
